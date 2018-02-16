@@ -21,18 +21,18 @@ public class SearchesTest {
 		for (int i = 0; i < test.length; i++)
 			test[i] = i;
 		
-		Collections.shuffle(Arrays.asList(test));
-		find = test[test.length - 1];//ThreadLocalRandom.current().nextInt(0, test.length);
+		//Collections.shuffle(Arrays.asList(test));
+		find = test[test.length/4*3];//ThreadLocalRandom.current().nextInt(0, test.length);
 		long end = System.currentTimeMillis();
 		System.out.println("Setup complete in " + (end - start) + " ms.");
 	}
 
 	@Test
 	public void testBinarySearch() {
-		Integer[] t = Arrays.copyOf(test, test.length);
-		Arrays.sort(t);
+		//Integer[] t = Arrays.copyOf(test, test.length);
+		//Arrays.sort(t);
 		long start = System.currentTimeMillis();
-		int index = Searches.binarySearch(t, find);
+		int index = Searches.binarySearch(test, find);
 		long end = System.currentTimeMillis();
 		System.out.println("Binary Search : Found " + find + " at index " + index + " in " + (end - start) + " ms");
 		
@@ -44,14 +44,6 @@ public class SearchesTest {
 		int index = Searches.linearSearch(test, find);
 		long end = System.currentTimeMillis();
 		System.out.println("Linear Search : Found " + find + " at index " + index + " in " + (end - start) + " ms");
-	}
-
-	@Test
-	public void testLinearSearchParallel() {
-		long start = System.currentTimeMillis();
-		int index = Searches.linearSearchParallel(test, find);
-		long end = System.currentTimeMillis();
-		System.out.println("Linear Search Parallel : Found " + find + " at index " + index + " in " + (end - start) + " ms");
 	}
 
 }
