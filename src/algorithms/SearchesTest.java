@@ -10,10 +10,9 @@ import org.junit.Test;
 
 public class SearchesTest {
 
-	final static int ELEMENTS = 10000000;
-	final static Integer[] test = new Integer[ELEMENTS];
-	static int find = -1;
-	boolean initial = true;
+	private final static int ELEMENTS = 10000000;
+	private final static Integer[] test = new Integer[ELEMENTS];
+	private static int find = -1;
 	
 	@BeforeClass
 	public static void setupBeforeClass() throws Exception {
